@@ -1,0 +1,25 @@
+[debug] [2019-10-01T20:04:11.143Z] ----------------------------------------------------------------------
+[debug] [2019-10-01T20:04:11.145Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\evana\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-10-01T20:04:11.145Z] CLI Version:   6.9.2
+[debug] [2019-10-01T20:04:11.145Z] Platform:      win32
+[debug] [2019-10-01T20:04:11.145Z] Node Version:  v10.15.1
+[debug] [2019-10-01T20:04:11.146Z] Time:          Tue Oct 01 2019 13:04:11 GMT-0700 (Pacific Daylight Time)
+[debug] [2019-10-01T20:04:11.146Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-10-01T20:04:11.156Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-01T20:04:11.156Z] > authorizing via signed-in user
+[debug] [2019-10-01T20:04:11.157Z] [iam] checking project class-schedule-49726 for permissions ["firebase.projects.get"]
+[debug] [2019-10-01T20:04:11.159Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/class-schedule-49726:testIamPermissions  
+
+[debug] [2019-10-01T20:04:11.510Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-01T20:04:11.512Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/class-schedule-49726  
+ 
+[debug] [2019-10-01T20:04:11.836Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\evana\Desktop\chat-hooks'...
+[info] 
+[debug] [2019-10-01T20:04:11.838Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/412218516403/clients/_:getWebAppConfig  
+ 
+[debug] [2019-10-01T20:04:12.177Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000

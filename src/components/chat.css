@@ -1,0 +1,26 @@
+#mesBox{
+    height: 80vh;
+    width: 60vw;
+    max-width: 800px;
+    margin : 10px auto 0 auto;
+    background: rgba(211,211,211, .7);
+    border-radius: 5px;
+}
+#mesFrom{
+    margin : 10px 0 0 0;
+}
+#mesInput{
+    width: 30vw;
+    height: 30px;
+    border : 0;
+    border-radius: 3px;
+}
+#submitBtn{
+    height: 32px;
+    width : 100px;
+    color : white;
+    border : 0;
+    border-radius: 3px;
+    margin : 0 0 0 0;
+    background-color: lightblue;
+}

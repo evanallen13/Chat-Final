@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import Chat from './components/chat'
+import Login from './components/login'
+import * as firebase from 'firebase';
 import './App.css';
 
 function App() {
+  const [ loggedIn , setLoggedIn ] = useState(false)
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      setLoggedIn(true)
+    } else {
+      setLoggedIn(false)
+    }
+  });
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        ( loggedIn ?
+        <Chat></Chat> : <Login></Login>
+        )}
     </div>
   );
 }
