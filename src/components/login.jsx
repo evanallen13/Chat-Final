@@ -11,7 +11,7 @@ const Login = (props) =>{
             console.log('Logged in')
         })
         .catch((result) => {
-            console.log('Failed to login')
+            console.log(result)
         })
     }
     return(
