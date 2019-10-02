@@ -9,3 +9,25 @@ firebase.initializeApp({
     messagingSenderId: "412218516403",
     appId: "1:412218516403:web:bf62ddb3a2bcce89bca1c6"
 });
+
+export const readDB = async() => {
+    let array = []
+    const DB = firebase.firestore()
+    const MESSAGES = await DB.collection('Messages')
+    MESSAGES.orderBy('id')
+    const DATA = await MESSAGES.get()
+    .then((snap) => {
+        snap.forEach(doc => {
+            array.push([doc.id,doc.data().User,doc.data().Message])
+        })
+    })
+
+    return array
+}
+
+export const writeDB = (Message) => {
+    const User = firebase.auth().currentUser.displayName
+    const DB = firebase.firestore()
+    const id = String(Date.now())
+    const MESSAGES = DB.collection('Messages').doc(id).set({Message,User})
+}

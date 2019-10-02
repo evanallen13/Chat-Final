@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState,  useEffect } from 'react';
 import * as firebase from 'firebase';
 import './chat.css'
+import MessageBlob from './messageBlob'
+import { readDB, writeDB } from '../Fire'
+
 
 const Chat = () => {
     const [ mes, setMes ] = useState('')
     const [ messages, setMessages ] = useState([])
 
-    const addMessage = () => {
-        console.log('hello')
-        let prev = messages
-        messages.push(mes)
-        setMessages(prev)
-        setMes('')
+    const addMessage = async() => {
+        const result = await readDB()
+        setMessages(result)
     }
 
     const signOut = () => {
@@ -22,28 +22,41 @@ const Chat = () => {
           });
     }
 
+    useEffect(() => {
+        addMessage()
+    }, [])
+
     return (
         <div>
             <div id="mesBox">
                 {
                     messages.map((message) => 
-                        <h4 key={message}>{message}</h4>
+                        <MessageBlob 
+                            key={message[0]}
+                            User={message[1]}
+                            Message={message[2]}
+                        ></MessageBlob>
                     )
                 }
             </div>
-            <input 
+            <div id='mesForm'>
+                <input 
                 id="mesInput" 
                 type='text' 
                 placeholder="Enter Message"
                 value={mes}
                 onChange={(e) => setMes(e.target.value)}
-            ></input>
-            <button id="submitBtn" type="button" onClick={() => addMessage()}
-            >Send</button>
-            <button onClick ={() => signOut()}>Log Out</button>
+                ></input>
+                <button id="submitBtn" type="button" onClick={() => writeDB(mes)}
+                >Send</button>
+                <br></br>
+                <button onClick ={() => signOut()}>Log Out</button>
+            </div>
+            
         </div>
 
 )}
+
 
 
 export default Chat;
