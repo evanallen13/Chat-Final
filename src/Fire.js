@@ -28,6 +28,7 @@ export const readDB = async() => {
 export const writeDB = (Message) => {
     const User = firebase.auth().currentUser.displayName
     const DB = firebase.firestore()
-    const id = String(Date.now())
+    const date = new Date()
+    const id = String(date)
     const MESSAGES = DB.collection('Messages').doc(id).set({Message,User})
 }

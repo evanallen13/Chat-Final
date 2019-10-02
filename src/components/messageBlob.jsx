@@ -6,23 +6,26 @@ const MessageBlob = (props) =>{
     return(
         ( props.User === firebase.auth().currentUser.displayName ?
             <UserMessage>
-                <h4>{getDate(props.Time)}</h4>
+                <h4>{date(props.Time)}</h4>
                 <BlobUser>
                     {props.Message}
                 </BlobUser>
             </UserMessage> :
             <NonUserMessage>
-                <h4>{props.User} {props.Time}</h4>
+                <h4>{props.User} {date(props.Time)}</h4>
                 <BlobNonUser>{props.Message}</BlobNonUser>
             </NonUserMessage>
         )
     )
 }
-const getDate = (time) =>{
-    const day = new Date()
-    console.log(time)
+const date = (time) =>{
+    const day = new Date(time)
+    const hour = day.getHours() >= 12 ? day.getHours() - 12 : day.getHours()
+    const min = day.getMinutes() < 10 ? `0${day.getMinutes()}` : day.getMinutes()
+    const ampm = day.getHours() >= 12 ? 'pm' : 'am'
 
-    return time
+    
+    return `${hour}:${min}${ampm}`
 }
 
 const UserMessage = styled.div`
