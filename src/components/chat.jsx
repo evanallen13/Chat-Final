@@ -40,6 +40,7 @@ const Chat = () => {
                 }
             </div>
             <div id='mesForm'>
+                <button id='logOut' onClick ={() => signOut()}>LogOut</button>
                 <input 
                 id="mesInput" 
                 type='text' 
@@ -49,8 +50,6 @@ const Chat = () => {
                 ></input>
                 <button id="submitBtn" type="button" onClick={() => writeDB(mes)}
                 >Send</button>
-                <br></br>
-                <button onClick ={() => signOut()}>Log Out</button>
             </div>
             
         </div>
