@@ -33,7 +33,7 @@ const Chat = () => {
                     messages.map((message) => 
                         <MessageBlob 
                             key={message[0]}
-                            Time={message[0]}
+                            Time={message[3]}
                             User={message[1]}
                             Message={message[2]}
                         ></MessageBlob>

@@ -14,21 +14,27 @@ export const readDB = async() => {
     let array = []
     const DB = firebase.firestore()
     const MESSAGES = await DB.collection('Messages')
-    MESSAGES.orderBy('id')
+    MESSAGES.orderBy('id','desc')
     const DATA = await MESSAGES.get()
     .then((snap) => {
         snap.forEach(doc => {
-            array.push([doc.id,doc.data().User,doc.data().Message])
+            array.push([doc.id,doc.data().User,doc.data().Message,doc.data().Date])
         })
     })
 
     return array
 }
 
-export const writeDB = (Message) => {
-    const User = firebase.auth().currentUser.displayName
+export const writeDB = (message) => {
+    const user = firebase.auth().currentUser.displayName
     const DB = firebase.firestore()
     const date = new Date()
-    const id = String(date)
-    const MESSAGES = DB.collection('Messages').doc(id).set({Message,User})
+    const id = String(Date.now())
+    const data = {
+        User : user,
+        Message : message,
+        Date : date
+    }
+    const MESSAGES = DB.collection('Messages').doc(id).set(data)
+    //const MESSAGES = DB.collection('Messages').doc(id).set({Message,User})
 }

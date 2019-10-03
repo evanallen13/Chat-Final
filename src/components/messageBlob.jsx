@@ -19,12 +19,10 @@ const MessageBlob = (props) =>{
     )
 }
 const date = (time) =>{
-    const day = new Date(time)
+    const day = new Date(time.seconds * 1000)
     const hour = day.getHours() >= 12 ? day.getHours() - 12 : day.getHours()
     const min = day.getMinutes() < 10 ? `0${day.getMinutes()}` : day.getMinutes()
     const ampm = day.getHours() >= 12 ? 'pm' : 'am'
-
-    
     return `${hour}:${min}${ampm}`
 }
 
