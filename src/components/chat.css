@@ -1,10 +1,11 @@
 #mesBox{
-    height: 80vh;
+    height: 60vh;
     width: 95vw;
     max-width: 800px;
     margin : 5px auto 0 auto;
     background: rgba(211,211,211, .7);
     border-radius: 10px;
+    overflow: auto;
 }
 
 #mesForm{
