@@ -41,7 +41,7 @@ const Chat = () => {
                 }
             </div>
             <div id='mesForm'>
-                <button id='logOut' onClick ={() => signOut()}>LogOut</button>
+                {/* <button id='logOut' onClick ={() => signOut()}>LogOut</button> */}
                 <input 
                 id="mesInput" 
                 type='text' 
